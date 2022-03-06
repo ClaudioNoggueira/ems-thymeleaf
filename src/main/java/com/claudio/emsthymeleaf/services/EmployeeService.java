@@ -6,5 +6,7 @@ import com.claudio.emsthymeleaf.models.Employee;
 
 public interface EmployeeService {
 
-    List<Employee> findAllEmployees();
+    List<Employee> findAll();
+
+    void add(Employee obj);
 }

@@ -8,7 +8,30 @@
 }
 
 .title {
-    margin: 25px auto 50px;
+    margin: 25px auto 25px;
     font-size: 2rem;
     text-align: center;
+}
+
+table {
+    box-shadow: 3px 3px 2px #ccc;
+}
+
+table:hover {
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+}
+
+.add-employee-btn {
+    float: right;
+    margin-bottom: 25px;
+}
+
+.add-employee-link {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.add-employee-link:hover {
+    color: #FFF;
 }
