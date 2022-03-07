@@ -8,5 +8,9 @@ public interface EmployeeService {
 
     List<Employee> findAll();
 
-    void add(Employee obj);
+    void insert(Employee obj);
+
+    void update(Employee obj);
+
+    Employee findById(String id);
 }
