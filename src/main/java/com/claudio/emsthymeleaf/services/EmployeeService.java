@@ -13,4 +13,6 @@ public interface EmployeeService {
     void update(Employee obj);
 
     Employee findById(String id);
+
+    void delete(String id);
 }

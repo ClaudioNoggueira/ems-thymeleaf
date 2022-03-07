@@ -39,4 +39,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         Optional<Employee> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Employee not found with ID: " + id));
     }
+
+    @Override
+    public void delete(String id) {
+        Employee obj = findById(id);
+        repo.delete(obj);
+    }
 }

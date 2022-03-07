@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class EmployeeController {
@@ -52,6 +51,12 @@ public class EmployeeController {
     @PostMapping(value = "/edit-employee")
     public String editEmployee(@ModelAttribute("employee") Employee obj) {
         service.update(obj);
+        return "redirect:/";
+    }
+
+    @GetMapping(value = "/delete-employee/{id}")
+    public String deleteEmployee(@PathVariable(value = "id") String id) {
+        service.delete(id);
         return "redirect:/";
     }
 }

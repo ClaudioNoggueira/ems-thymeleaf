@@ -63,6 +63,11 @@
                                     <i class="uil uil-edit"></i> Edit
                                 </a>
                             </button>
+                            <button class="btn btn-danger">
+                                <a th:href="@{/delete-employee/{id}(id=${employee.id})}">
+                                    <i class="uil uil-trash"></i> Delete
+                                </a>
+                            </button>
                         </td>
                     </tr>
                 </tbody>
