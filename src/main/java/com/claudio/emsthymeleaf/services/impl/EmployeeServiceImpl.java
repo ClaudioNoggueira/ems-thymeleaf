@@ -45,4 +45,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee obj = findById(id);
         repo.delete(obj);
     }
+
+    @Override
+    public List<Employee> findByEmail(String email) {
+        List<Employee> list = repo.findByEmailContaining(email);
+        return list;
+    }
 }

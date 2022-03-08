@@ -21,15 +21,16 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Employee Management System</a>
+                <a class="navbar-brand" href="/">Employee Management System</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse search-box" id="navbarSupportedContent">
-                    <form class="d-flex search-form">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex search-form" th:href="@{/search}" method="post" th:object="${searchDTO}">
+                        <input class="form-control me-2" type="search" th:field="*{search}"
+                            placeholder="Search by email" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
@@ -53,7 +54,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="employee : ${listAllEmployees}">
+                    <tr th:each="employee : ${list}">
                         <td th:text="${employee.firstName}"></td>
                         <td th:text="${employee.lastName}"></td>
                         <td th:text="${employee.email}"></td>

@@ -8,11 +8,13 @@ public interface EmployeeService {
 
     List<Employee> findAll();
 
+    List<Employee> findByEmail(String email);
+
+    Employee findById(String id);
+
     void insert(Employee obj);
 
     void update(Employee obj);
-
-    Employee findById(String id);
 
     void delete(String id);
 }

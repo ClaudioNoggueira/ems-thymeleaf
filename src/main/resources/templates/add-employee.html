@@ -24,8 +24,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse search-box" id="navbarSupportedContent">
-                    <form class="d-flex search-form">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex search-form" method="post" th:object="${searchDTO}">
+                        <input class="form-control me-2" type="search" th:field="*{search}"
+                            placeholder="Search by email" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>

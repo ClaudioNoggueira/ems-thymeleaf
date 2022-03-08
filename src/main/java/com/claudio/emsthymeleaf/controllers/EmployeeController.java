@@ -2,6 +2,7 @@ package com.claudio.emsthymeleaf.controllers;
 
 import java.util.List;
 
+import com.claudio.emsthymeleaf.dto.SearchDTO;
 import com.claudio.emsthymeleaf.models.Employee;
 import com.claudio.emsthymeleaf.services.EmployeeService;
 
@@ -24,14 +25,24 @@ public class EmployeeController {
     @GetMapping(value = "/")
     public String viewHomePage(Model model) {
         List<Employee> list = service.findAll();
-        model.addAttribute("listAllEmployees", list);
+        model.addAttribute("list", list);
+        model.addAttribute("searchDTO", new SearchDTO());
+        return "index";
+    }
+
+    // Implement search
+    @PostMapping(value = "/")
+    public String search(@ModelAttribute("searchDTO") SearchDTO obj, Model model) {
+        List<Employee> list = service.findByEmail(obj.getSearch());
+        model.addAttribute("list", list);
+        model.addAttribute("searchDTO", new SearchDTO());
         return "index";
     }
 
     @GetMapping(value = "/add-employee")
     public String viewAddEmployeeForm(Model model) {
-        Employee obj = new Employee();
-        model.addAttribute("employee", obj);
+        model.addAttribute("employee", new Employee());
+        model.addAttribute("searchDTO", new SearchDTO());
         return "add-employee";
     }
 
